@@ -1,0 +1,27 @@
+load(
+    "@io_bazel_rules_jsonnet//jsonnet:jsonnet.bzl",
+    "jsonnet_library",
+    "jsonnet_to_json",
+)
+
+jsonnet_library(
+    name = "package",
+    srcs = [
+        "package.libsonnet",
+    ],
+    deps = [
+        "//packsonnet:packsonnet",
+    ],
+)
+
+jsonnet_to_json(
+    name = "multiple_files",
+    src = "main.jsonnet",
+    deps = [
+        ":package",
+    ],
+    outs = [
+        "foo.json",
+        "bar.json",
+    ],
+)
