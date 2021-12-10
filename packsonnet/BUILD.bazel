@@ -10,6 +10,6 @@ jsonnet_library(
         "//packsonnet/file:file",
     ],
     visibility = [
-        "//visibility:public",
+        "//:__pkg__",
     ],
 )
