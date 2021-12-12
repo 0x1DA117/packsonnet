@@ -10,7 +10,7 @@ jsonnet_library(
         "package.libsonnet",
     ],
     deps = [
-        "//packsonnet:packsonnet",
+        "//:packsonnet",
     ],
 )
 
