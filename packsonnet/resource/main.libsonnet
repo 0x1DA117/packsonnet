@@ -1,0 +1,3 @@
+{
+  defaultSortFunc(resources):: resources
+}
