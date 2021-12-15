@@ -1,0 +1,57 @@
+{
+	"simple": {
+		"foo.json": {
+			"bar": "baz"
+		}
+	},
+	"multiple_files": {
+		"foo.json": {
+			"bar": "baz"
+		},
+		"bar.json": {
+			"baz": "cux"
+		}
+	},
+	"with_config": {
+		"foo.json": {
+			"bar": "two"
+		}
+	},
+	"with_indexed_names_default": {
+		"01_foo.json": {
+			"bar": "baz"
+		},
+		"02_bar.json": {
+			"baz": "cux"
+		}
+	},
+	"with_indexed_names_format": {
+		"001_foo.json": {
+			"bar": "baz"
+		},
+		"002_bar.json": {
+			"baz": "cux"
+		}
+	},
+	"with_indexed_names_start": {
+		"10_foo.json": {
+			"bar": "baz"
+		},
+		"11_bar.json": {
+			"baz": "cux"
+		}
+	},
+	"with_content_func": {
+		"foo.json": {
+			"bar": "baz"
+		}
+	},
+	"with_sort_func": {
+		"bar.json": {
+			"baz": "cux"
+		},
+		"foo.json": {
+			"bar": "baz"
+		}
+	},
+}

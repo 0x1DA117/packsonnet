@@ -1,4 +1,8 @@
-load("@io_bazel_rules_jsonnet//jsonnet:jsonnet.bzl", "jsonnet_library")
+load(
+    "@io_bazel_rules_jsonnet//jsonnet:jsonnet.bzl",
+    "jsonnet_library",
+    "jsonnet_to_json_test"
+)
 
 jsonnet_library(
     name = "packsonnet",
@@ -12,4 +16,13 @@ jsonnet_library(
     visibility = [
         "//:__pkg__",
     ],
+)
+
+jsonnet_to_json_test(
+    name = "tests",
+    src = "test.jsonnet",
+    deps = [
+        ":packsonnet",
+    ],
+    golden = "test_result.json",
 )
