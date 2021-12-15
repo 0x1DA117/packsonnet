@@ -5,16 +5,8 @@ order of the resources on the file system.
 
 ## Usage
 
-### Jsonnet
-
 ```bash
 $ jsonnet -m . main.jsonnet
-```
-
-### Bazel
-
-```bash
-$ bazel build //examples/indexed_files:indexed_files
 ```
 
 ## Output
