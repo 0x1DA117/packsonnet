@@ -31,6 +31,12 @@ local conf = import '../config/main.libsonnet';
 
       local resources = sf(resourceFunc(defaultConfig + config));
 
+      if !std.isFunction(contentFunc) then
+        error 'contentFunc must be a function',
+
+      if !std.isFunction(resourceFunc) then
+        error 'resourceFunc must be a function',
+
       {
         [nf(index, resources[index])]: contentFunc(resources[index])
           for index in std.range(0, std.length(resources) - 1)
