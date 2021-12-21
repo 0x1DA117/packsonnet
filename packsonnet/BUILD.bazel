@@ -10,6 +10,7 @@ jsonnet_library(
         "main.libsonnet",
     ],
     deps = [
+        "//packsonnet/config:config",
         "//packsonnet/package:package",
         "//packsonnet/file:file",
     ],

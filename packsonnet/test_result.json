@@ -54,4 +54,17 @@
 			"bar": "baz"
 		}
 	},
+	"with_name_func_override": {
+		"oof.json": {
+			"bar": "baz"
+		}
+	},
+	"with_sort_func_override": {
+		"a.json": {
+			"baz": "cux"
+		},
+		"c.json": {
+			"foo": "bar"
+		}
+	}
 }

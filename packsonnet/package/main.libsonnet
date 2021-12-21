@@ -1,5 +1,6 @@
 local resource = import '../resource/main.libsonnet';
 local file = import '../file/main.libsonnet';
+local conf = import '../config/main.libsonnet';
 
 {
   new(
@@ -9,11 +10,23 @@ local file = import '../file/main.libsonnet';
     contentFunc=file.defaultContentFunc,
     defaultConfig={}
   )::
-    function(config={})
-      local resources = sortFunc(resourceFunc(defaultConfig + config));
+    function(config={}, packsonnetConfig=conf.packsonnetConfig)
+      local pc = conf.packsonnetConfig + packsonnetConfig;
+
+      local sf =
+        if std.isFunction(pc.sortFuncOverride)
+        then pc.sortFuncOverride
+        else sortFunc;
+
+      local nf =
+        if std.isFunction(pc.nameFuncOverride)
+        then pc.nameFuncOverride
+        else nameFunc;
+
+      local resources = sf(resourceFunc(defaultConfig + config));
 
       {
-        [nameFunc(index, resources[index])]: contentFunc(resources[index])
+        [nf(index, resources[index])]: contentFunc(resources[index])
           for index in std.range(0, std.length(resources) - 1)
       },
 }

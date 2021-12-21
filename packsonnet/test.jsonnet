@@ -115,4 +115,31 @@ local package = packsonnet.package;
     sortFunc=function(resources)
       std.sort(resources, keyF=function(res) res.name)
   )(),
+  with_name_func_override: package.new(function(config) [
+    {
+      name: 'foo.json',
+      content: {
+        bar: 'baz',
+      },
+    },
+  ])(packsonnetConfig={
+    nameFuncOverride: function(index, resource) 'oof.json',
+  }),
+  with_sort_func_override: package.new(function(config) [
+    {
+      name: 'c.json',
+      content: {
+        foo: 'bar',
+      },
+    },
+    {
+      name: 'a.json',
+      content: {
+        baz: 'cux',
+      },
+    },
+  ])(packsonnetConfig={
+    sortFuncOverride:
+      function(resources) std.sort(resources, keyF=function(res) res.name)
+  }),
 }
