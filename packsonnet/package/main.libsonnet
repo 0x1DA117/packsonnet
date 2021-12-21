@@ -16,26 +16,21 @@ local conf = import '../config/main.libsonnet';
       local sf =
         if std.isFunction(pc.sortFuncOverride) then
           pc.sortFuncOverride
-        else if std.isFunction(sortFunc) then
-          sortFunc
         else
-          error 'sortFunc must be a function';
+          sortFunc;
 
       local nf =
         if std.isFunction(pc.nameFuncOverride) then
           pc.nameFuncOverride
-        else if std.isFunction(nameFunc) then
-          nameFunc
         else
-          error 'nameFunc must be a function';
+          nameFunc;
+
+      assert std.isFunction(sf) : 'sortFunc must be a function';
+      assert std.isFunction(nf) : 'nameFunc must be a function';
+      assert std.isFunction(contentFunc) : 'contentFunc must be a function';
+      assert std.isFunction(resourceFunc) : 'resourceFunc must be a function';
 
       local resources = sf(resourceFunc(defaultConfig + config));
-
-      if !std.isFunction(contentFunc) then
-        error 'contentFunc must be a function',
-
-      if !std.isFunction(resourceFunc) then
-        error 'resourceFunc must be a function',
 
       {
         [nf(index, resources[index])]: contentFunc(resources[index])
