@@ -14,14 +14,20 @@ local conf = import '../config/main.libsonnet';
       local pc = conf.packsonnetConfig + packsonnetConfig;
 
       local sf =
-        if std.isFunction(pc.sortFuncOverride)
-        then pc.sortFuncOverride
-        else sortFunc;
+        if std.isFunction(pc.sortFuncOverride) then
+          pc.sortFuncOverride
+        else if std.isFunction(sortFunc) then
+          sortFunc
+        else
+          error 'sortFunc must be a function';
 
       local nf =
-        if std.isFunction(pc.nameFuncOverride)
-        then pc.nameFuncOverride
-        else nameFunc;
+        if std.isFunction(pc.nameFuncOverride) then
+          pc.nameFuncOverride
+        else if std.isFunction(nameFunc) then
+          nameFunc
+        else
+          error 'nameFunc must be a function';
 
       local resources = sf(resourceFunc(defaultConfig + config));
 
