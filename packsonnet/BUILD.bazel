@@ -12,6 +12,7 @@ jsonnet_library(
     deps = [
         "//packsonnet/config:config",
         "//packsonnet/package:package",
+        "//packsonnet/resource:resource",
         "//packsonnet/file:file",
     ],
     visibility = [
