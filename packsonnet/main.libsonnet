@@ -1,6 +1,4 @@
 {
-  config: (import 'config/main.libsonnet'),
-  package: (import 'package/main.libsonnet'),
-  resource: (import 'resource/main.libsonnet'),
-  file: (import 'file/main.libsonnet'),
+  core: (import 'core/main.libsonnet'),
+  k8s: (import 'k8s/main.libsonnet'),
 }

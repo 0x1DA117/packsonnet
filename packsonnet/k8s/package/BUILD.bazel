@@ -1,15 +1,15 @@
 load("@io_bazel_rules_jsonnet//jsonnet:jsonnet.bzl", "jsonnet_library")
 
 jsonnet_library(
-    name = "packsonnet",
+    name = "package",
     srcs = [
         "main.libsonnet",
     ],
     deps = [
         "//packsonnet/core:core",
-        "//packsonnet/k8s:k8s",
+        "//packsonnet/k8s/file:file",
     ],
     visibility = [
-        "//visibility:public",
+        "//packsonnet:__subpackages__",
     ],
 )

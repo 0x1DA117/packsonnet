@@ -1,7 +1,9 @@
-# packsonnet
+# Packsonnet
 
-packsonnet is a packaging library for Jsonnet to create configurable packages
+Packsonnet is a packaging library for Jsonnet to create configurable packages
 of Jsonnet resources.
+
+**Packsonnet is unstable, so be aware of breaking changes!**
 
 ## Installation
 

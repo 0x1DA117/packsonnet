@@ -1,0 +1,30 @@
+load(
+    "@io_bazel_rules_jsonnet//jsonnet:jsonnet.bzl",
+    "jsonnet_library",
+    "jsonnet_to_json_test"
+)
+
+jsonnet_library(
+    name = "core",
+    srcs = [
+        "main.libsonnet",
+    ],
+    deps = [
+        "//packsonnet/core/config:config",
+        "//packsonnet/core/file:file",
+        "//packsonnet/core/package:package",
+        "//packsonnet/core/resource:resource",
+    ],
+    visibility = [
+        "//packsonnet:__subpackages__",
+    ],
+)
+
+jsonnet_to_json_test(
+    name = "tests",
+    src = "test.jsonnet",
+    deps = [
+        ":core",
+    ],
+    golden = "test_result.json",
+)

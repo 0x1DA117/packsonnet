@@ -1,0 +1,29 @@
+load(
+    "@io_bazel_rules_jsonnet//jsonnet:jsonnet.bzl",
+    "jsonnet_library",
+    "jsonnet_to_json_test",
+)
+
+jsonnet_library(
+    name = "k8s",
+    srcs = [
+        "main.libsonnet",
+    ],
+    deps = [
+        "//packsonnet/k8s/file:file",
+        "//packsonnet/k8s/package:package",
+        "//packsonnet/k8s/resource:resource",
+    ],
+    visibility = [
+        "//packsonnet:__subpackages__",
+    ],
+)
+
+jsonnet_to_json_test(
+    name = "tests",
+    src = "test.jsonnet",
+    deps = [
+        ":k8s",
+    ],
+    golden = "test_result.json",
+)

@@ -1,0 +1,22 @@
+{
+	"kind_based_sorting_default": {
+		"serviceaccount_baz.json": {
+			"kind": "ServiceAccount",
+			"metadata": {
+				"name": "baz"
+			}
+		},
+		"secret_bar.json": {
+			"kind": "Secret",
+			"metadata": {
+				"name": "bar"
+			}
+		},
+		"deployment_foo.json": {
+			"kind": "Deployment",
+			"metadata": {
+				"name": "foo"
+			}
+		}
+	}
+}
