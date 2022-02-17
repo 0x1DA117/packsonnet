@@ -1,5 +1,3 @@
-# Examples - Simple
-
 This is a simple example which shows the most basic usage.
 
 ## Usage

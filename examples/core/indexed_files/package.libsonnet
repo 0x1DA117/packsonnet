@@ -1,5 +1,6 @@
-local packsonnet = import '../../packsonnet/main.libsonnet';
-local package = packsonnet.package;
+local packsonnet = import '../../../main.libsonnet';
+local package = packsonnet.core.package;
+local file = packsonnet.core.file;
 
 package.new(
   function(config) [
@@ -15,5 +16,6 @@ package.new(
         more: 'content',
       },
     },
-  ]
+  ],
+  nameFunc=file.newIndexedNameFunc()
 )

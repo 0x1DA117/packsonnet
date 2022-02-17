@@ -1,5 +1,3 @@
-# Examples - Multiple Files
-
 This example shows the output of more than one file.
 
 ## Usage

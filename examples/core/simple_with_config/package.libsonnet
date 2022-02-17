@@ -1,5 +1,5 @@
-local packsonnet = import '../../packsonnet/main.libsonnet';
-local package = packsonnet.package;
+local packsonnet = import '../../../main.libsonnet';
+local package = packsonnet.core.package;
 
 package.new(
   function(config) [

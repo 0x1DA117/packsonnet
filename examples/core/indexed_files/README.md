@@ -1,5 +1,3 @@
-# Examples - Indexed Files
-
 This example shows how filenames can be prefixed with a number to preserve the
 order of the resources on the file system.
 
