@@ -17,6 +17,7 @@ local getKindIndex(kind, order) =
       'Secret',
       'Deployment',
       'Service',
+      'Ingress',
     ],
 
     withKindsAtPosition(position, kinds, baseOrder):: std.flattenArrays([
