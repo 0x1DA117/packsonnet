@@ -14,6 +14,7 @@ local getKindIndex(kind, order) =
       'ClusterRole',
       'RoleBinding',
       'ClusterRoleBinding',
+      'ConfigMap',
       'Secret',
       'Deployment',
       'Service',
