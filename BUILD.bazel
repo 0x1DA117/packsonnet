@@ -1,5 +1,12 @@
 load("@io_bazel_rules_jsonnet//jsonnet:jsonnet.bzl", "jsonnet_library")
 
+# Allow usage of "@com_github_0xIDANT_packsonnet" in deps of downstream
+# projects.
+alias(
+    name = "com_github_0xIDANT_packsonnet",
+    actual = "//:packsonnet",
+)
+
 jsonnet_library(
     name = "packsonnet",
     srcs = [
