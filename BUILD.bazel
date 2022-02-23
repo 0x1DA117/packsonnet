@@ -5,6 +5,9 @@ load("@io_bazel_rules_jsonnet//jsonnet:jsonnet.bzl", "jsonnet_library")
 alias(
     name = "com_github_0xIDANT_packsonnet",
     actual = "//:packsonnet",
+    visibility = [
+        "//visibility:public",
+    ],
 )
 
 jsonnet_library(
