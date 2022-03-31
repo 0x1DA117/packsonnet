@@ -6,6 +6,7 @@ local getKindIndex(kind, order) =
 {
   kindOrder: {
     default():: [
+      'Namespace',
       'CustomResourceDefinition',
       'MutatingWebhookConfiguration',
       'ValidatingWebhookConfiguration',
