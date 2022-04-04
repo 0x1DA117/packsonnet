@@ -5,7 +5,7 @@ local getKindIndex(kind, order) =
 
 {
   kindOrder: {
-    default():: [
+    default:: [
       'Namespace',
       'NetworkPolicy',
       'ResourceQuota',
@@ -59,11 +59,18 @@ local getKindIndex(kind, order) =
       self.withKindsAtPosition(index, newKinds, order),
   },
 
-  newKindBasedSortFunc(order=$.kindOrder.default()):: function(resources)
-    std.flattenArrays(
-      [
-        std.filter(function(res) res.kind == kind, resources)
-        for kind in order
-      ]
+  newKindBasedSortFunc(order=$.kindOrder.default)::
+    function(resources)
+      std.sort(
+        resources,
+        keyF=function(res)
+          local idxs = std.find(res.kind, order);
+          if std.length(idxs) > 0 then
+            // Use the index of the first match.
+            idxs[0]
+          else
+            // Put at the end of the list.
+            99
+      )
     ),
 }
